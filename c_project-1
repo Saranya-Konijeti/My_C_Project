@@ -1,0 +1,220 @@
+//1.CONVERSION OF CELSIUS TO FARENHEIT.
+#include"stdio.h"
+void main()
+{
+    float cel,far;
+    printf("Enter celsius");
+    scanf("%f",&cel);
+    far = (cel * 9 / 5) + 32;
+    printf("The converted celsius into farenheit is %f",far);
+}
+//CONVERSION OF FARENHEIT TO CELSIUS.
+#include"stdio.h"
+void main()
+{
+    float cel,far;
+    printf("Enter farenheit");
+    scanf("%f",&far);
+    cel = (far - 32)*5/9; 
+    
+    printf("The converted celsius into farenheit is %f",cel);
+}
+//2.Write a C program to verify whether or not a given number is palindrome.
+#include <stdio.h>
+
+void main()
+{
+   int num,rev_num =0,rem,initial_num;
+   printf("Enter num");
+   scanf("%d",&num);
+   
+   initial_num = num;
+   for(;num!=0;num = num/10){
+       rem = num%10;
+       rev_num = rev_num*10+rem;
+   }
+   if(initial_num == rev_num){
+       printf("Palindrome number");
+   }
+   else
+       printf("Not a Palindrome number");
+       
+}
+/*3.Write a C program to input the electricity units and calculate the total electricity bill according to the given condition:
+For first 50 units Rs. 0.50/unit
+For next 100 units Rs. 0.75/unit
+For next 100 units Rs. 1.20/unit
+For unit above 250 Rs. 1.50/unit*/
+#include<stdio.h>
+void main()
+{
+    int units;
+    printf("Enter the electricty units");
+    scanf("%d",&units);
+    if(units<=50)
+        printf("The electricity bill is Rs. %f",units*0.50);
+    else if(units>50 && units<=150)
+        printf("The electricity bill is Rs. %f",units*0.75);
+    else  if(units>150 && units<=250)
+        printf("The electricity bill is Rs. %f",units*1.20);
+    else
+        printf("The electricity bill is Rs. %f",units*1.50);
+}
+//4.Write a C program to find the largest among four given numbers using nested if…else.
+#include<stdio.h>
+void main()
+{
+    int a,b,c,d;
+    printf("Enter the values of a,b,c,d");
+    scanf("%d%d%d%d",&a,&b,&c,&d);
+    if(a>b){
+        if(a>c){
+            if(a>d)
+                printf("a is greater");
+            else
+                   printf("d is greater");
+        }else{
+                if(c>d)
+                    printf("c is greater");
+                else
+                    printf("d is greater");
+                
+            }
+        }
+    else{
+        if(b>c){
+            if(b>d)
+               printf("b is greater");  
+            else 
+               printf("d is greater");
+        }else{
+            if(c>d)
+               printf("c is greater");
+            else
+               printf("d is greater");
+        }
+    }
+}
+
+//5.Write a C Program to verify a given number is prime or not.
+#include"stdio.h"
+void main()
+{
+    int num,flag = 0,i;
+    printf("Enter num");
+    scanf("%d",&num);
+    for(i = 2;i<=num/2;i++){
+         if(num%i==0){
+            flag++;
+            break;}
+    }
+     if(flag==0)
+        printf("Prime number");
+    else
+        printf("Not a Prime number");
+    
+}
+
+//6.Write a C program to check whether a given number is a 'Perfect' number or not.
+#include <stdio.h>
+
+void main()
+{
+   int num,sum=0,i;
+   printf("enter num");
+   scanf("%d",&num);
+   for(i=1;i<=num/2;i++){
+      if(num%i==0)
+      sum = sum+i;}
+      if(sum==num)
+      printf("perfect num");
+      else
+      printf("not a perfect number");
+      
+}
+
+//7.Write a C program that displays all the numbers from X and Y, that are divisible by a and b. (X, Y, a, & b Should be read from Keyboard).
+#include"stdio.h"
+void main()
+{
+    int X,Y,a,b,i;
+    printf("Enter values of X,Y,a,b");
+    scanf("%d%d%d%d",&X,&Y,&a,&b);
+    for(i=X;i<=Y;i++){
+       if(i%a==0 && i%b==0)
+           printf("%d\n",i);
+    }
+}
+
+//8.Write a C Program to enter a decimal number and calculate and display the binary equivalent of that number. 
+#include <stdio.h>
+void main()
+{
+    int num,rem,binary_num=0,base = 1;
+    printf("Enter num");
+    scanf("%d",&num);
+    while(num!=0){
+      rem = num%2;
+      num = num/2;
+      
+      binary_num = binary_num+rem*base;
+      base = base*10;
+    }
+    printf("%d",binary_num);
+      
+}
+
+//9.Write a C program to find the roots of a Quadratic Equation
+#include <stdio.h>
+#include <math.h>
+
+void main() {
+    double a, b, c, discriminant, root1, root2;
+    printf("Enter coefficients a, b, and c: ");
+    scanf("%lf %lf %lf", &a, &b, &c);
+
+    discriminant = b * b - 4 * a * c;
+
+    if (discriminant > 0) {
+        root1 = (-b + sqrt(discriminant)) / (2 * a);
+        root2 = (-b - sqrt(discriminant)) / (2 * a);
+        printf("Roots are real and distinct.\n");
+        printf("Root 1 = %lf\n", root1);
+        printf("Root 2 = %lf\n", root2);
+    }
+    else if (discriminant == 0) {
+        root1 = root2 = -b / (2 * a);
+        printf("Roots are real and the same.\n");
+        printf("Root 1 = Root 2 = %lf\n", root1);
+    }
+    else {
+       
+        printf("Roots are complex and different.\n");
+        
+        
+    } 
+}
+
+//10.Write a C program to whether the given number is Armstrong Number of Not.
+#include <stdio.h>
+#include"math.h"
+
+void main()
+{
+    
+   int num,cube=1,sum=0,rem,original_num;
+   printf("enter num");
+   scanf("%d",&num);
+   original_num = num;
+   
+   
+   for(;num!=0;num = num/10){
+     rem = num%10;
+     cube= pow(rem,3);
+     sum = sum+cube;}
+     if(original_num == sum)
+     printf("Amstrong number");
+     else
+     printf("not a Amstrong number");   
+      
+}
