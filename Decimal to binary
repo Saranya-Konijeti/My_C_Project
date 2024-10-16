@@ -1,0 +1,16 @@
+#include <stdio.h>
+void main()
+{
+    int num,rem,binary_num=0,base = 1;
+    printf("Enter num");
+    scanf("%d",&num);
+    while(num!=0){
+      rem = num%2;
+      num = num/2;
+      
+      binary_num = binary_num+rem*base;
+      base = base*10;
+    }
+    printf("%d",binary_num);
+      
+}
