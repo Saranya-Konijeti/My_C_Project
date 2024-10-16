@@ -1,0 +1,23 @@
+ #include <stdio.h>
+#include"math.h"
+
+void main()
+{
+    
+   int num,cube=1,sum=0,rem,original_num;
+   printf("enter num");
+   scanf("%d",&num);
+   original_num = num;
+   
+   
+   for(;num!=0;num = num/10){
+     rem = num%10;
+     cube= pow(rem,3);
+     sum = sum+cube;}
+     if(original_num == sum)
+     printf("Amstrong number");
+     else
+     printf("not a Amstrong number");
+     
+      
+}
